@@ -107,7 +107,7 @@ def format_to_indian_rupees(val):
 # ==========================================
 # 2. APP SIDEBAR INPUT CONTROLS
 # ==========================================
-st.sidebar.markdown("<h2 style='color:#3b82f6; font-size:20px; font-weight:700;'>Parameters Workspace</h2>", unsafe_allowed_html=True)
+st.sidebar.markdown("<h2 style='color:#3b82f6; font-size:20px; font-weight:700;'>Parameters Workspace</h2>", unsafe_allow_html=True)
 
 st.sidebar.markdown("### Demographics & Base Expenses")
 current_age = st.sidebar.number_input("Current Age", min_value=1, max_value=100, value=43)

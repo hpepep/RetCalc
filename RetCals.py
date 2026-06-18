@@ -187,8 +187,8 @@ if build_up_years >= 0:
     base_annual_expense_at_retire = monthly_expense_at_retire * 12
 
     # --- Phase 2: Structural Bucket Asset Allocations ---
-    st.markdown("<h1 style='margin-bottom:0px;'>Retirement Ecosystem India</h1>", unsafe_allowed_html=True)
-    st.markdown("<p style='color:#9ca3af; font-size:14px; margin-bottom:25px;'>Advanced multi-asset, multi-bucket drawdown lifecycle simulator</p>", unsafe_allowed_html=True)
+    st.markdown("<h1 style='margin-bottom:0px;'>Retirement Ecosystem India</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#9ca3af; font-size:14px; margin-bottom:25px;'>Advanced multi-asset, multi-bucket drawdown lifecycle simulator</p>", unsafe_allow_html=True)
     
     st.markdown("### Interactive Bucket Optimization Control Override")
     c_b1, c_b2, c_b3 = st.columns(3)
@@ -198,9 +198,9 @@ if build_up_years >= 0:
     
     total_sum = alloc_b1_pct + alloc_b2_pct + alloc_b3_pct
     if abs(total_sum - 100) > 0.01:
-        st.markdown(f"<span style='color:#ef4444; font-weight:600;'>⚠️ Total Allocation is {total_sum}%. Must equal 100%!</span>", unsafe_allowed_html=True)
+        st.markdown(f"<span style='color:#ef4444; font-weight:600;'>⚠️ Total Allocation is {total_sum}%. Must equal 100%!</span>", unsafe_allow_html=True)
     else:
-        st.markdown("<span style='color:#10b981; font-weight:600;'>✅ Allocation balanced properly at 100%</span>", unsafe_allowed_html=True)
+        st.markdown("<span style='color:#10b981; font-weight:600;'>✅ Allocation balanced properly at 100%</span>", unsafe_allow_html=True)
         
     initial_b1 = exact_terminal_corpus * (alloc_b1_pct / 100.0)
     initial_b2 = exact_terminal_corpus * (alloc_b2_pct / 100.0)
@@ -369,11 +369,11 @@ if build_up_years >= 0:
     with tab_accum:
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Target Corpus Needed</div><div class="kpi-val">{format_to_indian_rupees(exact_terminal_corpus)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Target Corpus Needed</div><div class="kpi-val">{format_to_indian_rupees(exact_terminal_corpus)}</div></div>', unsafe_allow_html=True)
         with col2:
-            st.markdown(f'<div class="kpi-card warning"><div class="kpi-label">Inflation-Adjusted Monthly Spend</div><div class="kpi-val">{format_to_indian_rupees(monthly_expense_at_retire)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card warning"><div class="kpi-label">Inflation-Adjusted Monthly Spend</div><div class="kpi-val">{format_to_indian_rupees(monthly_expense_at_retire)}</div></div>', unsafe_allow_html=True)
         with col3:
-            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Net Initial Year Real Withdrawal</div><div class="kpi-val">{format_to_indian_rupees(base_annual_expense_at_retire)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Net Initial Year Real Withdrawal</div><div class="kpi-val">{format_to_indian_rupees(base_annual_expense_at_retire)}</div></div>', unsafe_allow_html=True)
             
         fig1 = go.Figure()
         fig1.add_trace(go.Scatter(x=accum_ages, y=accum_total, name="Total Combined Portfolio", line=dict(color='#3b82f6', width=3), fill='tozeroy', fillcolor='rgba(59, 130, 246, 0.05)'))
@@ -395,15 +395,15 @@ if build_up_years >= 0:
     with tab_buckets:
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.markdown(f'<div class="kpi-card" style="border-left-color:#f59e0b;"><div class="kpi-label">Proposed Liquid Bucket (B1)</div><div class="kpi-val" style="color:#f59e0b;">{format_to_indian_rupees(initial_b1)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card" style="border-left-color:#f59e0b;"><div class="kpi-label">Proposed Liquid Bucket (B1)</div><div class="kpi-val" style="color:#f59e0b;">{format_to_indian_rupees(initial_b1)}</div></div>', unsafe_allow_html=True)
         with col2:
-            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Proposed Fixed Income Debt (B2)</div><div class="kpi-val" style="color:#3b82f6;">{format_to_indian_rupees(initial_b2)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Proposed Fixed Income Debt (B2)</div><div class="kpi-val" style="color:#3b82f6;">{format_to_indian_rupees(initial_b2)}</div></div>', unsafe_allow_html=True)
         with col3:
-            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Proposed Equity Component (B3)</div><div class="kpi-val" style="color:#10b981;">{format_to_indian_rupees(initial_b3)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Proposed Equity Component (B3)</div><div class="kpi-val" style="color:#10b981;">{format_to_indian_rupees(initial_b3)}</div></div>', unsafe_allow_html=True)
             
         sust_text = f"Corpus Runs Dry at Age {portfolio_survives_till_age}" if portfolio_depleted else f"Sustains Fully to Target Life Expectancy ({max_age})"
         color_class = "danger" if portfolio_depleted else "success"
-        st.markdown(f'<div class="kpi-card {color_class}"><div class="kpi-label">Simulated Post-Retirement Sustenance Lifespan</div><div class="kpi-val">{sust_text}</div></div>', unsafe_allowed_html=True)
+        st.markdown(f'<div class="kpi-card {color_class}"><div class="kpi-label">Simulated Post-Retirement Sustenance Lifespan</div><div class="kpi-val">{sust_text}</div></div>', unsafe_allow_html=True)
         
         fig2 = go.Figure()
         fig2.add_trace(go.Scatter(x=post_retire_ages, y=b1_trend, name="Liquid Cash Vault (B1)", line=dict(color='#f59e0b'), fill='tozeroy', fillcolor='rgba(245, 158, 11, 0.1)'))
@@ -433,11 +433,11 @@ if build_up_years >= 0:
     with tab_montecarlo:
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Probability of Lifecycle Success</div><div class="kpi-val">{success_rate}%</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card success"><div class="kpi-label">Probability of Lifecycle Success</div><div class="kpi-val">{success_rate}%</div></div>', unsafe_allow_html=True)
         with col2:
-            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Optimistic Outcome (75th Percentile)</div><div class="kpi-val" style="color:#10b981;">{format_to_indian_rupees(optimistic_quantile)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card"><div class="kpi-label">Optimistic Outcome (75th Percentile)</div><div class="kpi-val" style="color:#10b981;">{format_to_indian_rupees(optimistic_quantile)}</div></div>', unsafe_allow_html=True)
         with col3:
-            st.markdown(f'<div class="kpi-card warning"><div class="kpi-label">Pessimistic Outcome (25th Percentile)</div><div class="kpi-val" style="color:#ef4444;">{format_to_indian_rupees(pessimistic_quantile)}</div></div>', unsafe_allowed_html=True)
+            st.markdown(f'<div class="kpi-card warning"><div class="kpi-label">Pessimistic Outcome (25th Percentile)</div><div class="kpi-val" style="color:#ef4444;">{format_to_indian_rupees(pessimistic_quantile)}</div></div>', unsafe_allow_html=True)
             
         fig4 = go.Figure()
         for idx, traj in enumerate(sample_trajectories):

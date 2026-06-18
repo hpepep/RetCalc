@@ -82,7 +82,7 @@ st.markdown("""
             margin-top: 4px;
         }
     </style>
-""", unsafe_allowed_html=True)
+""", unsafe_allow_html=True)
 
 # Indian Rupee Formatting Function (Lakhs/Crores layout separator)
 def format_to_indian_rupees(val):
